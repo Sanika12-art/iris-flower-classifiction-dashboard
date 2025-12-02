@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Power BI Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f0f4f8;
+      padding: 40px;
+      text-align: center;
+    }
+    h2 {
+      color: #1f6feb;
+      margin-bottom: 20px;
+    }
+    img {
+      width: 100%;
+      max-width: 900px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <h2>📈 Power BI Dashboard Preview</h2>
+  <img src="{{ url_for('static', filename='images/dashboard.png') }}" alt="Power BI Dashboard">
+</body>
+</html>

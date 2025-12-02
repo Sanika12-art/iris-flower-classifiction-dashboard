@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Analytics • Iris Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f3f4f6, #ffffff);
+    }
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      padding: 30px;
+    }
+    h2 {
+      font-size: 28px;
+      color: #1f6feb;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+    .chart-box {
+      background: #f9fafb;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      margin-bottom: 30px;
+    }
+    .chart-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #333;
+    }
+    .summary {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+    .summary-item {
+      flex: 1;
+      background: #e0f2fe;
+      padding: 16px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .summary-item h4 {
+      margin: 0;
+      font-size: 16px;
+      color: #1f6feb;
+    }
+    .summary-item p {
+      margin: 6px 0 0;
+      font-size: 18px;
+      font-weight: bold;
+      color: #222;
+    }
+    .btn {
+      display: inline-block;
+      background: #1f6feb;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    .btn:hover {
+      background: #1450b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>📊 Analytics Dashboard</h2>
+    <div class="subtitle">Visual insights from your prediction history</div>
+
+    <div class="summary">
+      <div class="summary-item">
+        <h4>Total Predictions</h4>
+        <p>{{ total_predictions }}</p>
+      </div>
+      <div class="summary-item">
+        <h4>Most Frequent Class</h4>
+        <p>{{ most_common_class or "—" }}</p>
+      </div>
+      <div class="summary-item">
+        <h4>Last Prediction</h4>
+        <p>{{ last_pred_class or "—" }}</p>
+      </div>
+    </div>
+
+    <div class="chart-box">
+      <div class="chart-title">Distribution by Class</div>
+      <canvas id="classChart" width="100%" height="300"></canvas>
+    </div>
+
+    <a href="/dashboard" class="btn">⬅ Back to Dashboard</a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx = document.getElementById('classChart').getContext('2d');
+    const chart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Setosa', 'Versicolor', 'Virginica'],
+        datasets: [{
+          label: 'Predictions',
+          data: [{{ class_counts.Setosa }}, {{ class_counts.Versicolor }}, {{ class_counts.Virginica }}],
+          backgroundColor: ['#3b82f6', '#10b981', '#f59e0b']
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

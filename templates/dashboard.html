@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Iris Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #e0f2fe, #ffffff);
+      display: flex;
+    }
+    .sidebar {
+      width: 240px;
+      background: #1f6feb;
+      color: white;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      height: 100vh;
+    }
+    .sidebar h2 {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+    .nav-section {
+      margin-bottom: 20px;
+    }
+    .nav-section h4 {
+      font-size: 14px;
+      margin-bottom: 10px;
+      color: #cbd5e1;
+    }
+    .nav-link {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+    .nav-link:hover {
+      background: rgba(255,255,255,0.2);
+    }
+    .main {
+      flex: 1;
+      padding: 40px;
+    }
+    .header {
+      font-size: 28px;
+      color: #1f6feb;
+      margin-bottom: 10px;
+    }
+    .subheader {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+    .cards {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+    .card {
+      flex: 1;
+      min-width: 250px;
+      background: #f9fafb;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .card h4 {
+      margin: 0;
+      font-size: 18px;
+      color: #333;
+    }
+    .card p {
+      margin: 8px 0 0;
+      font-size: 24px;
+      font-weight: bold;
+      color: #1f6feb;
+    }
+    .dropdown {
+      margin-top: 20px;
+    }
+    select {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>🌸 Iris Project</h2>
+
+    <div class="nav-section">
+      <h4>Core Features</h4>
+      <a href="/predict" class="nav-link">🔮 My Prediction</a>
+      <a href="/history" class="nav-link">📜 Prediction History</a>
+    </div>
+
+    <div class="nav-section">
+      <h4>User</h4>
+      <a href="/profile" class="nav-link">👤 My Profile</a>
+      <a href="/settings" class="nav-link">⚙️ Settings</a>
+      <a href="/logout" class="nav-link">🚪 Logout</a>
+    </div>
+
+   <div class="nav-section">
+  <h4>Data & Insights</h4>
+  <a href="/dataset" class="nav-link">📂 Dataset Explorer</a>
+  <a href="/model-info" class="nav-link">🧠 Model Info</a>
+</div>
+
+
+    <div class="nav-section">
+      <h4>Extras</h4>
+      <a href="/notifications" class="nav-link">🔔 Notifications</a>
+      <a href="/help" class="nav-link">❓ Help & Support</a>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="header">Welcome, SANIKA 👋</div>
+    <div class="subheader">Here’s a quick summary of your prediction activity</div>
+
+    <div class="cards">
+      <div class="card">
+        <h4>Total Predictions</h4>
+        <p>{{ total_predictions }}</p>
+      </div>
+      <div class="card">
+        <h4>Last Prediction</h4>
+        <p>{{ last_pred_class }}</p>
+        <small>Confidence: {{ last_confidence }}%<br>Time: {{ last_timestamp }}</small>
+      </div>
+      <div class="card">
+        <h4>Your Distribution</h4>
+        <div class="dropdown">
+          <select name="viewplot" onchange="location.href=this.value">
+            <option value="#">Select Chart</option>
+            <option value="/analytics">📊 View Analytics</option>
+            <option value="/powerbi">📈 Power BI Dashboard</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

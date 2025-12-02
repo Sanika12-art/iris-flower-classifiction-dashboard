@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Model Info • Iris Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f3f4f6, #ffffff);
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      padding: 30px;
+    }
+    h2 {
+      font-size: 28px;
+      color: #1f6feb;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+    .summary {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .summary-item {
+      background: #f0f4ff;
+      padding: 16px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .summary-item h4 {
+      margin: 0;
+      font-size: 16px;
+      color: #1f6feb;
+    }
+    .summary-item p {
+      margin: 6px 0 0;
+      font-size: 18px;
+      font-weight: bold;
+      color: #222;
+    }
+    .json-block {
+      background: #f9fafb;
+      border-radius: 12px;
+      padding: 20px;
+      font-family: monospace;
+      font-size: 14px;
+      color: #333;
+      white-space: pre-wrap;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .btn {
+      display: inline-block;
+      background: #1f6feb;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .btn:hover {
+      background: #1450b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🧠 Model Info</h2>
+    <div class="subtitle">Details of the trained machine learning model used for Iris classification</div>
+
+    <div class="summary">
+      <div class="summary-item">
+        <h4>Model Type</h4>
+        <p>RandomForestClassifier</p>
+      </div>
+      <div class="summary-item">
+        <h4>Accuracy</h4>
+        <p>100%</p>
+      </div>
+      <div class="summary-item">
+        <h4>Estimators</h4>
+        <p>200</p>
+      </div>
+      <div class="summary-item">
+        <h4>Classes</h4>
+        <p>Setosa, Versicolor, Virginica</p>
+      </div>
+    </div>
+
+    <div class="json-block">
+{
+  "bootstrap": true,
+  "ccp_alpha": 0.0,
+  "class_weight": null,
+  "criterion": "gini",
+  "max_depth": null,
+  "max_features": "sqrt",
+  "max_leaf_nodes": null,
+  "max_samples": null,
+  "min_impurity_decrease": 0.0,
+  "min_samples_leaf": 1,
+  "min_samples_split": 2,
+  "min_weight_fraction_leaf": 0.0,
+  "n_estimators": 200,
+  "n_jobs": null,
+  "oob_score": false,
+  "random_state": null,
+  "verbose": 0,
+  "warm_start": false
+}
+    </div>
+
+    <a href="/dashboard" class="btn">⬅ Back to Dashboard</a>
+  </div>
+</body>
+</html>

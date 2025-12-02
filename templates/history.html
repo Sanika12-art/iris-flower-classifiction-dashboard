@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Prediction History • Iris Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0; padding: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #e3f2fd, #ffffff);
+    }
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #1f6feb;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .btn {
+      background: #1f6feb;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .btn:hover {
+      background: #1450b3;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+    }
+    th {
+      background-color: #f0f4ff;
+      color: #333;
+    }
+    tr:hover {
+      background-color: #f9fcff;
+    }
+    .empty {
+      text-align: center;
+      color: #777;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>📄 Prediction History</h2>
+    <div class="subtitle">Your past predictions with confidence scores and timestamps</div>
+
+    <div class="actions">
+      <a href="/download-history" class="btn">📥 Download CSV</a>
+      <a href="/dashboard" class="btn">⬅ Back to Dashboard</a>
+    </div>
+
+    {% if history %}
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Sepal Length</th>
+          <th>Sepal Width</th>
+          <th>Petal Length</th>
+          <th>Petal Width</th>
+          <th>Predicted Class</th>
+          <th>Confidence (%)</th>
+          <th>Timestamp</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in history %}
+        <tr>
+          <td>{{ row.id }}</td>
+          <td>{{ row.sepal_length }}</td>
+          <td>{{ row.sepal_width }}</td>
+          <td>{{ row.petal_length }}</td>
+          <td>{{ row.petal_width }}</td>
+          <td>{{ row.predicted_class }}</td>
+          <td>{{ row.confidence }}</td>
+          <td>{{ row.timestamp }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <div class="empty">No predictions yet. Try making one from the dashboard!</div>
+    {% endif %}
+  </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home • Iris Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin:0; padding:0;
+      background:linear-gradient(135deg,#90caf9,#e3f2fd);
+      font-family:"Inter",sans-serif;
+    }
+    .navbar {
+      background:#1f6feb; padding:14px 20px;
+      color:white; font-size:18px; font-weight:bold;
+    }
+    .container {
+      max-width:900px; margin:auto; padding:30px; text-align:center;
+    }
+    h1 { font-size:34px; margin-bottom:10px; }
+    p { font-size:16px; color:#333; margin-bottom:25px; }
+    .btn {
+      display:inline-block; padding:12px 22px; margin:6px;
+      background:#1f6feb; color:white; text-decoration:none;
+      border-radius:8px; font-size:16px;
+    }
+    .btn:hover { opacity:0.9; }
+    .card-box {
+      margin-top:30px; padding:25px;
+      background:white; border-radius:12px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    }
+    img {
+      max-width:300px; margin-top:20px; border-radius:12px;
+      box-shadow:0 6px 16px rgba(0,0,0,0.12);
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">🌸 Iris Classification Project</div>
+  <div class="container">
+    <h1>Welcome to the Iris Prediction System</h1>
+    <p>A simple and powerful ML-based application to classify Iris flower species.</p>
+
+    <div class="card-box">
+      <h2>Get Started</h2>
+      <p>Select an option to continue:</p>
+      <a href="/dashboard" class="btn">📊 Dashboard</a>
+      <a href="/iris" class="btn">🔮 Predict</a>
+      <a href="/history" class="btn">📄 History</a>
+      <a href="/settings" class="btn">⚙ Settings</a>
+    </div>
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Iris_versicolor_3.jpg" alt="Iris Flower">
+  </div>
+</body>
+</html>

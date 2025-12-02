@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Help & Support • Iris Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0; padding: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #e3f2fd, #ffffff);
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #1f6feb;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+    .faq {
+      margin-bottom: 20px;
+      padding: 18px;
+      border-left: 5px solid #1f6feb;
+      background: #f8faff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .faq h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      color: #333;
+    }
+    .faq p {
+      margin: 0;
+      font-size: 15px;
+      color: #555;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      background: #1f6feb;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
+    }
+    .btn:hover {
+      background: #1450b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>❓ Help & Support</h2>
+    <div class="subtitle">Answers to common questions about using the Iris Prediction System</div>
+
+    <div class="faq">
+      <h3>🌸 How do I make a prediction?</h3>
+      <p>Go to the Iris Prediction page, enter all four measurements, and click Predict. You'll see the predicted class and confidence score.</p>
+    </div>
+
+    <div class="faq">
+      <h3>📦 Where is my data stored?</h3>
+      <p>Your predictions are saved securely in the Prediction History table linked to your account.</p>
+    </div>
+
+    <div class="faq">
+      <h3>🔐 Trouble logging in?</h3>
+      <p>Use the Forgot Password option to receive an OTP. Then verify and reset your password easily.</p>
+    </div>
+
+    <div class="faq">
+      <h3>🧪 How do I reload the model?</h3>
+      <p>Train the model using <code>train_model.py</code> and place <code>iris_model.pkl</code> and <code>scaler.pkl</code> inside the <code>/model</code> folder. Then restart the server.</p>
+    </div>
+
+    <div class="faq">
+      <h3>📄 Can I download my prediction history?</h3>
+      <p>Yes! Go to the History page or Settings tab and click Download CSV to export your data.</p>
+    </div>
+
+    <center>
+      <a class="btn" href="/dashboard">⬅ Back to Dashboard</a>
+    </center>
+  </div>
+</body>
+</html>

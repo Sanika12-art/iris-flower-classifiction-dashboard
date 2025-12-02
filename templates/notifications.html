@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Notifications • Iris Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f3f4f6, #ffffff);
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      padding: 30px;
+    }
+    h2 {
+      font-size: 28px;
+      color: #1f6feb;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+    .card {
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .card.info { background: #e0f2fe; border-left: 6px solid #3b82f6; }
+    .card.success { background: #dcfce7; border-left: 6px solid #22c55e; }
+    .card.tip { background: #fef9c3; border-left: 6px solid #eab308; }
+    .icon {
+      font-size: 24px;
+    }
+    .content {
+      flex: 1;
+    }
+    .content h4 {
+      margin: 0;
+      font-size: 18px;
+      color: #333;
+    }
+    .content p {
+      margin: 4px 0 0;
+      font-size: 15px;
+      color: #555;
+    }
+    .btn {
+      display: inline-block;
+      background: #1f6feb;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .btn:hover {
+      background: #1450b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🔔 Notifications</h2>
+    <div class="subtitle">Latest updates and tips from your Iris dashboard</div>
+
+    <div class="card info">
+      <div class="icon">👋</div>
+      <div class="content">
+        <h4>Welcome</h4>
+        <p>Thanks for joining the Iris Project!</p>
+      </div>
+    </div>
+
+    <div class="card success">
+      <div class="icon">✅</div>
+      <div class="content">
+        <h4>Model Loaded</h4>
+        <p>Random forest model is active and ready for predictions.</p>
+      </div>
+    </div>
+
+    <div class="card tip">
+      <div class="icon">💡</div>
+      <div class="content">
+        <h4>Tip</h4>
+        <p>Use Analytics to see your prediction distribution and trends.</p>
+      </div>
+    </div>
+
+    <a href="/dashboard" class="btn">⬅ Back to Dashboard</a>
+  </div>
+</body>
+</html>

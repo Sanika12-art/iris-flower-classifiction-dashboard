@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris Prediction • UI</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #4b79a1, #283e51);
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            width: 500px; background: white; padding: 30px; border-radius: 12px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.3); animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        h2 { text-align: center; margin-bottom: 20px; color: #283e51; }
+        label { font-weight: bold; margin-top: 10px; display: block; }
+        input { width: 100%; padding: 10px; margin-top: 6px; border-radius: 6px; border: 1px solid #ccc; font-size: 14px; }
+        input:focus { border-color: #4b79a1; outline: none; }
+        button { width: 100%; padding: 12px; font-size: 16px; margin-top: 20px; border-radius: 6px; border: none; background: #4b79a1; color: white; cursor: pointer; }
+        button:hover { background: #35516a; }
+        .prediction-box { margin-top: 20px; padding: 15px; font-size: 16px; border-radius: 6px; text-align: center; }
+        .success { background: #ddffdd; color: #2d8a2d; border-left: 5px solid #2d8a2d; }
+        .error { background: #ffdddd; color: #d8000c; border-left: 5px solid #d8000c; }
+        .nav { text-align:center; margin-top:10px; }
+        .link { display:inline-block; margin-top:10px; background:#1f6feb; color:#fff; padding:8px 12px; border-radius:8px; text-decoration:none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Iris Flower Prediction</h2>
+        <form action="/predict" method="POST">
+            <label>Sepal Length</label>
+            <input type="number" step="0.01" name="sepal_length" required>
+            <label>Sepal Width</label>
+            <input type="number" step="0.01" name="sepal_width" required>
+            <label>Petal Length</label>
+            <input type="number" step="0.01" name="petal_length" required>
+            <label>Petal Width</label>
+            <input type="number" step="0.01" name="petal_width" required>
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+        <div class="prediction-box success">{{ prediction }}</div>
+        {% endif %}
+        {% if error %}
+        <div class="prediction-box error">{{ error }}</div>
+        {% endif %}
+
+        <div class="nav">
+          <a class="link" href="/dashboard">⬅ Back to dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

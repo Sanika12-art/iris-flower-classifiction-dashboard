@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Account Settings • Iris Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f3f4f6, #ffffff);
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      padding: 30px;
+    }
+    h2 {
+      font-size: 28px;
+      color: #1f6feb;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+    .tabs {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .tab {
+      padding: 10px 16px;
+      background: #f0f4ff;
+      border-radius: 8px;
+      font-weight: bold;
+      color: #1f6feb;
+      cursor: pointer;
+    }
+    .tab.active {
+      background: #1f6feb;
+      color: white;
+    }
+    .section {
+      margin-bottom: 30px;
+      padding: 20px;
+      background: #f9fafb;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .section h3 {
+      margin-top: 0;
+      font-size: 20px;
+      color: #333;
+      margin-bottom: 12px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #444;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+    input[type="checkbox"] {
+      width: auto;
+      margin-right: 8px;
+    }
+    .btn {
+      background: #1f6feb;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #1450b3;
+    }
+    .actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>⚙ Account Settings</h2>
+    <div class="subtitle">Manage your profile, preferences, and security</div>
+
+    <div class="tabs">
+      <div class="tab active">Profile</div>
+      <div class="tab">History</div>
+      <div class="tab">Security</div>
+    </div>
+
+    <form action="/update-settings" method="POST" enctype="multipart/form-data">
+      <div class="section">
+        <h3>👤 Update Profile</h3>
+        <label for="new_username">New Username</label>
+        <input type="text" name="new_username" value="{{ user.username }}" />
+
+        <label for="new_password">New Password</label>
+        <input type="password" name="new_password" placeholder="Enter new password" />
+
+        <label for="full_name">Full Name</label>
+        <input type="text" name="full_name" value="{{ user.full_name }}" />
+
+        <label for="email">Email</label>
+        <input type="email" name="email" value="{{ user.email }}" />
+
+        <label for="profile_photo">Profile Photo</label>
+        <input type="file" name="profile_photo" />
+      </div>
+
+      <div class="section">
+        <h3>🎨 Preferences</h3>
+        <label for="theme">Theme</label>
+        <select name="theme">
+          <option value="light" {% if user.theme == "light" %}selected{% endif %}>Light</option>
+          <option value="dark" {% if user.theme == "dark" %}selected{% endif %}>Dark</option>
+        </select>
+
+        <label>
+          <input type="checkbox" name="notifications" {% if user.notifications %}checked{% endif %} />
+          Enable Notifications
+        </label>
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="btn">💾 Save Changes</button>
+        <a href="/dashboard" class="btn">⬅ Back to Dashboard</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

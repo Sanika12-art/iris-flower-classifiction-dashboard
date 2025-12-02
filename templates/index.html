@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome • Iris Project</title>
+  <style>
+    body {
+      margin: 0; padding: 0; height: 100vh;
+      display: flex; justify-content: center; align-items: center;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      font-family: "Inter", sans-serif;
+    }
+    .box {
+      text-align: center; background: #ffffff;
+      padding: 40px 35px; border-radius: 14px; width: 380px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1); animation: fadeIn 0.8s ease-in-out;
+    }
+    .box h2 { margin-bottom: 10px; font-size: 26px; }
+    .box p { color: #444; margin-bottom: 25px; }
+    .btn {
+      display: block; width: 100%; padding: 12px; margin-top: 10px;
+      background: #1f6feb; color: white; border-radius: 8px;
+      text-decoration: none; font-size: 16px;
+    }
+    .btn:hover { opacity: 0.95; }
+    .btn-alt { background:#43a047; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>🌸 Iris ML Project</h2>
+    <p>A secure machine learning system for Iris species classification.</p>
+    <a href="/login" class="btn">Login</a>
+    <a href="/register" class="btn btn-alt">Register</a>
+  </div>
+</body>
+</html>

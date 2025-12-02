@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Admin • Users</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    body { background:#f5f7fb; font-family:Arial,sans-serif; margin:0; padding:24px; }
+    .wrap { max-width:1000px; margin:0 auto; background:#fff; border-radius:12px; box-shadow:0 6px 16px rgba(0,0,0,0.12); padding:16px; }
+    h2 { margin:0 0 12px; }
+    table { width:100%; border-collapse:collapse; }
+    th, td { border-bottom:1px solid #eee; padding:8px; text-align:center; }
+    th { background:#f0f4ff; }
+    .btn { background:#1f6feb; color:#fff; border:none; padding:8px 12px; border-radius:8px; text-decoration:none; display:inline-block; margin-top:10px; }
+    .pill { background:#eef; border-radius:12px; padding:4px 8px; font-size:12px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h2>Users</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th><th>Username</th><th>Full name</th><th>Email</th><th>Role</th><th>Created</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for u in users %}
+          <tr>
+            <td>{{ u.id }}</td>
+            <td>{{ u.username }}</td>
+            <td>{{ u.full_name }}</td>
+            <td>{{ u.email }}</td>
+            <td><span class="pill">{{ 'Admin' if u.is_admin else 'User' }}</span></td>
+            <td>{{ u.created_at }}</td>
+          </tr>
+        {% endfor %}
+        {% if not users %}
+          <tr><td colspan="6">No users found</td></tr>
+        {% endif %}
+      </tbody>
+    </table>
+    <a class="btn" href="/admin">⬅ Back to admin</a>
+  </div>
+</body>
+</html>
